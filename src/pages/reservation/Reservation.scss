@@ -1,7 +1,20 @@
 .reservation {
   display: flex;
+  max-width: 1290px;
+  margin: 0 auto;
   gap: 40px;
-  
+
+  .header {
+    span {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 0.02em;
+      color: #000000;
+    }
+  }
+
   form {
     display: flex;
     gap: 40px;
@@ -27,13 +40,28 @@
         padding: 20px;
         display: grid;
         gap: 13px;
-      }
 
-      .row {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        margin-top: 10px;
+        .row {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          margin-top: 10px;
+        }
+
+        .checkbox-row {
+          display: flex;
+          align-items: center;
+
+          input {
+            width: 30px;
+          }
+         
+          .checkbox-charge {
+            font-weight: 500;
+            font-size: 14px;
+            margin-left: 20px;
+          }
+        }
       }
     }
 
@@ -51,7 +79,7 @@
   }
 
   .summary {
-    max-width: 345px;
+    max-width: 945px;
     margin-top: 25px;
 
     .title {
@@ -73,6 +101,11 @@
 
       th {
         font-weight: 600;
+        font-size: 14px;
+      } 
+
+      td {
+        font-weight: 400;
         font-size: 14px;
       }
     }
