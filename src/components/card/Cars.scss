@@ -1,0 +1,73 @@
+.car-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .image {
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .header {
+    flex: 1;
+    margin: 15px 0;
+    text-align: left;
+  }
+
+  .features {
+    flex: 1;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        span {
+          font-weight: 500;
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span:nth-child(1) {
+      font-size: 20px;
+      font-weight: bold;
+      span {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+    button {
+      border: 1px solid #4848ff;
+      color: #4848ff;
+      padding: 4px 10px;
+      border-radius: 5px;
+      background-color: transparent;
+      &:hover {
+        color: white;
+        background-color: #4848ff;
+        cursor: pointer;
+      }
+    }
+  }
+}

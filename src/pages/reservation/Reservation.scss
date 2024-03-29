@@ -1,30 +1,80 @@
-#container {
-  div {
+.reservation {
+  display: flex;
+  gap: 40px;
+  
+  form {
     display: flex;
-    justify-content: space-between;
-    align-items: center ;
+    gap: 40px;
 
-    span {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 36px;
-      letter-spacing: 0.02em;
-      color: #000000;
+    .parent {
+      max-width: 345px;
+      margin-top: 25px;
+
+      .title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+      }
+
+      hr {
+        border: 0.5px solid #5d5cff;
+      }
+
+      .box {
+        margin-top: 20px;
+        border: 1px solid #dfdfff;
+        border-radius: 5px;
+        padding: 20px;
+        display: grid;
+        gap: 13px;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 10px;
+      }
     }
 
-    button {
-      font-weight: 600;
+    label {
       font-size: 14px;
-      background: #4848ff;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #dfdfff;
       border-radius: 5px;
-      border: none;
-      color: rgba(255, 255, 255, 0.925);
-      padding: 12px 25px;
+      padding: 8px;
+      outline: none;
     }
   }
 
-  .reservation-details {
-    
+  .summary {
+    max-width: 345px;
+    margin-top: 25px;
+
+    .title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    hr {
+      border: 0.5px solid #5d5cff;
+    }
+
+    table {
+      background-color: #dfdfff;
+      width: 100%;
+      border: 1px solid #5d5cff;
+      margin-top: 20px;
+      border-radius: 5px;
+
+      th {
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
   }
 }
