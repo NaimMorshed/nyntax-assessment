@@ -1,8 +1,8 @@
 ## 1. Introduction
 This is a MERN Stack assessment by Nyntax. 
 ## 2. Links
-- [Github repo: ](https://github.com/NaimMorshed/nyntax-assessment)
-- [Live link: ](https://nyntax-assessment.vercel.app/)
+- [Github repository](https://github.com/NaimMorshed/nyntax-assessment)
+- [Live link](https://nyntax-assessment.vercel.app/)
 ## 3. Instructions to run locally
 - make sure you have installed Node.js, npm and git to run react application locally
 - clone the repository from the provived github link - 'git clone https://github.com/NaimMorshed/nyntax-assessment.git'
