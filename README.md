@@ -5,10 +5,10 @@ This is a MERN Stack assessment by Nyntax.
 - [Live link](https://nyntax-assessment.vercel.app/)
 ## 3. Instructions to run locally
 - make sure you have installed Node.js, npm and git to run react application locally
-- clone the repository from the provived github link - 'git clone https://github.com/NaimMorshed/nyntax-assessment.git'
+- clone the repository from the provived github link - *'git clone https://github.com/NaimMorshed/nyntax-assessment.git'*
 - navigate inside the project folder
-- type the command to install the project 'npm install'
-- run the project using command 'npm run dev'
+- type the command to install the project *'npm install'*
+- run the project using command *'npm run dev'*
 ## 4. User Manual
 1. Once the project has been initialized you will land into the landing page.
 2. The landing page contains the list of available cars to rent.
