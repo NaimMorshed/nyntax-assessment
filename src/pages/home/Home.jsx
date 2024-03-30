@@ -5,6 +5,16 @@ import Cars from "../../components/card/Cars";
 
 export default function Home() {
   const [data, setData] = useState(null);
+  const [active, setActive] = useState("Day");
+
+  const inactiveStyle = {
+    backgroundColor: "black",
+    color: "white",
+  };
+  const activeStyle = {
+    backgroundColor: "white",
+    color: "black",
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,12 +34,17 @@ export default function Home() {
     <>
       <div className="home">
         <h2>Choose the vehicle you wish to rent</h2>
+        <div className="filter">
+          <button onClick={() => setActive("Hour")} style={ active === "Hour" ? activeStyle: inactiveStyle }>Hourly</button>
+          <button onClick={() => setActive("Day")} style={ active === "Day" ? activeStyle: inactiveStyle }>Daily</button>
+          <button onClick={() => setActive("Week")} style={ active === "Week" ? activeStyle: inactiveStyle }>Weekly</button>
+        </div>
 
         {/* Cards section */}
         <main className="cards">
           {data &&
             data.map((item, index) => (
-              <Cars props={item} key={index} />
+              <Cars props={item} key={index} state={active} />
             ))}
         </main>
 

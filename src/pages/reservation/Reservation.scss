@@ -1,10 +1,12 @@
-.reservation {
-  display: flex;
+.reservation-container {
   max-width: 1290px;
   margin: 0 auto;
-  gap: 40px;
+  margin-bottom: 30px;
 
   .header {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px 10px 0px;
     span {
       font-style: normal;
       font-weight: 700;
@@ -13,14 +15,101 @@
       letter-spacing: 0.02em;
       color: #000000;
     }
+
+    button {
+      padding: 8px 16px;
+      background: #5d5cff;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
   }
 
-  form {
+  .reservation {
     display: flex;
     gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 
-    .parent {
-      max-width: 345px;
+    form {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .parent {
+        width: 345px;
+        margin-top: 25px;
+
+        .title {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
+        }
+
+        hr {
+          border: 0.5px solid #5d5cff;
+        }
+
+        .box {
+          margin-top: 20px;
+          border: 1px solid #dfdfff;
+          border-radius: 5px;
+          padding: 20px;
+          display: grid;
+          gap: 13px;
+
+          .row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 10px;
+          }
+
+          .checkbox-row {
+            display: flex;
+            align-items: center;
+
+            input {
+              width: 30px;
+            }
+
+            .checkbox-charge {
+              font-weight: 500;
+              font-size: 14px;
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #dfdfff;
+        border-radius: 5px;
+        padding: 8px;
+        outline: none;
+      }
+
+      .datePicker {
+        width: 100%;
+        border: 1px solid #dfdfff;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .react-datepicker-wrapper {
+        border: none;
+      }
+    }
+
+    .summary {
+      width: 520px;
       margin-top: 25px;
 
       .title {
@@ -33,80 +122,25 @@
         border: 0.5px solid #5d5cff;
       }
 
-      .box {
+      table {
+        background-color: #dfdfff;
+        width: 100%;
+        border: 1px solid #5d5cff;
         margin-top: 20px;
-        border: 1px solid #dfdfff;
         border-radius: 5px;
         padding: 20px;
-        display: grid;
-        gap: 13px;
+        text-align: center;
 
-        .row {
-          display: flex;
-          align-items: center;
-          gap: 30px;
-          margin-top: 10px;
+        th {
+          font-weight: 600;
+          font-size: 14px;
         }
 
-        .checkbox-row {
-          display: flex;
-          align-items: center;
-
-          input {
-            width: 30px;
-          }
-         
-          .checkbox-charge {
-            font-weight: 500;
-            font-size: 14px;
-            margin-left: 20px;
-          }
+        td {
+          font-weight: 400;
+          font-size: 14px;
+          padding: 5px 0px;
         }
-      }
-    }
-
-    label {
-      font-size: 14px;
-    }
-
-    input {
-      width: 100%;
-      border: 1px solid #dfdfff;
-      border-radius: 5px;
-      padding: 8px;
-      outline: none;
-    }
-  }
-
-  .summary {
-    max-width: 945px;
-    margin-top: 25px;
-
-    .title {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 27px;
-    }
-
-    hr {
-      border: 0.5px solid #5d5cff;
-    }
-
-    table {
-      background-color: #dfdfff;
-      width: 100%;
-      border: 1px solid #5d5cff;
-      margin-top: 20px;
-      border-radius: 5px;
-
-      th {
-        font-weight: 600;
-        font-size: 14px;
-      } 
-
-      td {
-        font-weight: 400;
-        font-size: 14px;
       }
     }
   }

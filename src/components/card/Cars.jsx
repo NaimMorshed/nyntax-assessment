@@ -7,18 +7,18 @@ import { IoCarSport } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import "./Cars.scss";
 
-export default function Cars({ props }) {
+export default function Cars({ props, state }) {
   const navigate = useNavigate();
-  const { imageURL, make, model, seats, year, type, features, bags, rates } = props;
+  const { imageURL, make, model, seats, year, type, features, bags, rates } =
+    props;
 
   const handleClick = () => {
-    navigate('/reservation', { state: { data: props } });
-  }
+    navigate("/reservation", { state: { data: props } });
+  };
 
   return (
     <>
       <section className="car-card">
-
         {/* car image */}
         <div className="image">
           <img src={imageURL} alt="img" />
@@ -67,7 +67,15 @@ export default function Cars({ props }) {
 
         {/* rent button */}
         <div className="footer">
-          <span>${rates.daily}<span>/Day</span></span>
+          <span>
+            $
+            {state === "Day"
+              ? rates.daily
+              : state === "Week"
+              ? rates.weekly
+              : rates.hourly}
+            <span>/{state}</span>
+          </span>
           <button onClick={handleClick}>Rent Car</button>
         </div>
       </section>
