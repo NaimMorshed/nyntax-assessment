@@ -1,5 +1,19 @@
 .receipt {
-  padding: 50px;
+  padding: 30px;
+  display: grid;
+  place-items: center;
+
+  button {
+    padding: 7px 15px;
+    margin-bottom: 10px;
+    background-color: #4848ff;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   p {
     font-size: 14px;

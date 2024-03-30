@@ -1,15 +1,37 @@
 import { useLocation } from "react-router-dom";
 import logo from "../../assets/images/car-logo.png";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import "./Receipt.scss";
+import { useRef } from "react";
 
 export default function Receipt() {
+  const pdfRef = useRef();
   const { state } = useLocation();
   const data = state && state.data;
+
+  const downloadPdf = () => {
+    const input = pdfRef.current;
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4', true);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth , pdfHeight / imgHeight);
+      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY = 30;
+      pdf.addImage(imgData, 'PNG', imgX ,imgY, imgWidth * ratio, imgHeight * ratio); 
+      pdf.save('invoice.pdf');
+    })
+  }
 
   return (
     <>
       <div className="receipt">
-        <div className="receipt-container">
+        <button onClick={downloadPdf}>Click here to download</button>
+        <div className="receipt-container" ref={pdfRef}>
           {/* ---------- LEFT SECTION ---------- */}
           <div className="left-section">
             <div className="div-row">
