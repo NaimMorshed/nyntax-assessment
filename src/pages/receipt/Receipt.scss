@@ -1,3 +1,47 @@
-.receipt-container{
-  max-width: 100%;
+.receipt {
+  padding: 50px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .receipt-container {
+    width: 915px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.397);
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    padding: 50px;
+
+    .left-section {
+      .div-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        margin-bottom: 10px;
+      }
+
+      div:nth-child(4) {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+      }
+    }
+
+    .right-section {
+      .table-div {
+        background-color: rgba(128, 128, 128, 0.427);
+        margin-bottom: 20px;
+        width: 400px;
+      }
+
+      .signature {
+        margin-top: 30px;
+        display: grid;
+        gap: 15px;
+      }
+    }
+  }
 }

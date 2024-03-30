@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Reservation.scss";
 
 export default function Reservation() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const data = state && state.data;
   const [startDate, setStartDate] = useState(new Date());
@@ -18,6 +19,7 @@ export default function Reservation() {
   const [insurance, setInsurance] = useState(false);
   const [tax, setTax] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -25,6 +27,15 @@ export default function Reservation() {
     phone: '',
     
   });
+
+  const handleDiscountChange = (e) => {
+    const { value } = e.target;
+    if (value < 0) {
+      setDiscountPrice(0);
+    } else {
+      setDiscountPrice(value);
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,8 +58,16 @@ export default function Reservation() {
     if(tax){
       sum*=100/11.5;
     }
-    setTotalPrice(sum);
-  }, [collision, insurance, tax, timeCount])
+
+    sum -= discountPrice;
+
+    if (sum < 0) {
+      setTotalPrice(0);
+    } else {
+      setTotalPrice(sum);
+    }
+
+  }, [collision, insurance, tax, timeCount, discountPrice])
 
   // For reservation ID
   useEffect(() => {
@@ -98,7 +117,9 @@ export default function Reservation() {
 
  const handlePrintButton = () => {
   if (formData.firstName && formData.lastName && formData.email && formData.phone) {
-    console.log(formData);
+    navigate("/receipt", { state: { data: formData } });
+  } else {
+    alert("Please fill up customer information");
   }
  };
 
@@ -172,7 +193,7 @@ export default function Reservation() {
 
                   <div>
                     <label htmlFor="Discount">Discount</label>
-                    <input type="text" name="discount" />
+                    <input type="number" name="discount" onChange={handleDiscountChange} value={discountPrice} />
                   </div>
                 </div>
               </section>
@@ -316,6 +337,12 @@ export default function Reservation() {
                 <td>{newWeeks}</td>
                 <td>${data.rates.weekly}</td>
                 <td>${newWeeks * data.rates.weekly}</td>
+              </tr>
+              <tr>
+                <td>Discount</td>
+                <td></td>
+                <td></td>
+                <td>${discountPrice}</td>
               </tr>
               {collision && (
                 <tr>
